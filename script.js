@@ -1,19 +1,16 @@
-// Toggle the theme between light and dark
-document.getElementById('theme-toggle').addEventListener('click', function() {
-    document.body.classList.toggle('dark-theme');
-});
+// Contact Form Handling
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+  e.preventDefault(); // Prevent form submission
+  
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const message = document.getElementById('message').value;
 
-// Tooltip logic (optional)
-const tooltips = document.querySelectorAll('.tooltip');
-
-tooltips.forEach(tooltip => {
-    tooltip.addEventListener('mouseenter', function() {
-        this.querySelector('::after').style.visibility = 'visible';
-        this.querySelector('::after').style.opacity = '1';
-    });
-
-    tooltip.addEventListener('mouseleave', function() {
-        this.querySelector('::after').style.visibility = 'hidden';
-        this.querySelector('::after').style.opacity = '0';
-    });
+  if (name && email && message) {
+    alert(`Thank you, ${name}! Your message has been sent.`);
+    // Reset form
+    document.getElementById('contact-form').reset();
+  } else {
+    alert('Please fill in all fields.');
+  }
 });
